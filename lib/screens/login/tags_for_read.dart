@@ -14,15 +14,14 @@ class _TagsReadState extends State<TagsRead> {
   final int maxTags = 6;
 
   double getTextWidth(String text, TextStyle style, BuildContext context) {
-  final TextPainter textPainter = TextPainter(
-    text: TextSpan(text: text),
-    textDirection: TextDirection.ltr,
-    maxLines: 1, // Defina o número máximo de linhas como 1
-  )..layout(maxWidth: MediaQuery.of(context).size.width);
+    final TextPainter textPainter = TextPainter(
+      text: TextSpan(text: text),
+      textDirection: TextDirection.ltr,
+      maxLines: 1, // Defina o número máximo de linhas como 1
+    )..layout(maxWidth: MediaQuery.of(context).size.width);
 
-  return textPainter.width;
-}
-
+    return textPainter.width;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -201,21 +200,24 @@ class _TagsReadState extends State<TagsRead> {
 
   List<Widget> buildTagsSelections(BuildContext context) {
     return [
-      buildTagsSelection('Amor apaixonado', Icons.heart_broken, Colors.red, context),
-      buildTagsSelection('Primeiro Amor', Icons.monitor_heart, Colors.red, context),
       buildTagsSelection(
-          'Apaixonei -me por um rapaz rui', Icons.heart_broken, Colors.red, context),
-      buildTagsSelection('Amor Cotidiano', Icons.monitor_heart, Colors.red, context),
+          'Amor apaixonado', Icons.heart_broken, Colors.red, context),
+      buildTagsSelection(
+          'Primeiro Amor', Icons.monitor_heart, Colors.red, context),
+      buildTagsSelection('Apaixonei -me por um rapaz rui', Icons.heart_broken,
+          Colors.red, context),
+      buildTagsSelection(
+          'Amor Cotidiano', Icons.monitor_heart, Colors.red, context),
       buildTagsSelection(
           'Casamento contratual', Icons.monitor_heart, Colors.red, context),
       // Add more buildTagsSelection widgets here as needed
     ];
   }
-  
 
-  Widget buildTagsSelection(String title, IconData iconData, Color iconColor, BuildContext context) {
+  Widget buildTagsSelection(
+      String title, IconData iconData, Color iconColor, BuildContext context) {
     final bool isSelected = selectedTags.contains(title);
-    
+
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -229,11 +231,11 @@ class _TagsReadState extends State<TagsRead> {
         });
       },
       child: SizedBox(
-        width: getTextWidth(title, const TextStyle(fontSize: 12), context) + 60,
+        width: getTextWidth(title, const TextStyle(fontSize: 10), context) + 60,
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.all(8),
+              margin: const EdgeInsets.all(5),
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -252,7 +254,7 @@ class _TagsReadState extends State<TagsRead> {
                   const SizedBox(width: 5),
                   Text(
                     title,
-                    style: const TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 10),
                   ),
                 ],
               ),

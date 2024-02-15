@@ -286,9 +286,7 @@ class _LoginState extends State<Login> {
                                         _dataNascimentoController.text =
                                             formattedDate; //set output date to TextField value.
                                       });
-                                    } else {
-                                      print("Data Não selecionada");
-                                    }
+                                    } 
                                   },
                                 ),
                               ),
